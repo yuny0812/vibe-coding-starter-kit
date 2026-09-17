@@ -11,11 +11,10 @@
 ## Project Lifecycle Kit과의 관계
 
 이 저장소는 [`yuny0812/project-lifecycle-kit`](https://github.com/yuny0812/project-lifecycle-kit)의 복사본이 아닙니다. 두 저장소의 책임을 다음처럼 분리합니다.
-
 | 구분 | 보관하는 것 | 갱신 방식 |
 |---|---|---|
 | Project Lifecycle Kit | 재사용 가능한 기획·구축·검증·운영 방법, 게이트, 체크리스트 | 원본 kit을 한 곳에서 개선 |
-| 이 Starter Repository | 개별 프로젝트의 코드, 명세, ADR, 계획, 작업 로그, 검증 증거 | 프로젝트와 함께 변경 |
+| 이 Starter Repository | 개별 프로젝트의 코드, 명세, ADR, 리서치, 계획, 변경 기록, 검증 증거 | 프로젝트와 함께 변경 |
 
 즉 **방법(method)은 kit에**, **프로젝트별 사례(instance)는 이 저장소에** 둡니다. kit을 설치하지 않아도 이 템플릿만으로 시작할 수 있고, kit을 함께 사용하면 `docs/06_READINESS_GATE.md`와 `process/`의 산출물을 연결합니다.
 
@@ -42,6 +41,8 @@
 4. `.env.example`을 복사해 로컬 환경 파일을 만들고 실제 비밀값은 커밋하지 않습니다.
 5. `process/context/ALL_CONTEXT.md`에서 실제 기술 스택과 코드 위치를 확정합니다.
 6. 에이전트가 만든 계획을 `process/plans/active/`에서 확인하고 `docs/06_READINESS_GATE.md`의 V1~V7을 통과한 뒤 구현합니다.
+7. 조사 자료는 `process/research/`, 의미 있는 변경 기록은 `process/diffs/`에 남기고 commit 또는 PR을 연결합니다.
+
 
 ## 문서 작성 순서
 
@@ -58,10 +59,11 @@
 | 9 | [`process/README.md`](process/README.md) | Research부터 Closeout까지 작업 라이프사이클 |
 
 ## Source of Truth
-
 - 승인된 제품·아키텍처 지식은 `docs/`에 저장합니다.
+- 조사 질문, 출처, 실험과 결론은 `process/research/`에 저장합니다.
 - 실제 코드베이스의 현재 상태와 경로는 `process/context/`에 저장합니다.
 - 진행 중·완료·보류 작업은 `process/plans/`와 `process/features/`에서 관리합니다.
+- 의미 있는 코드·설정·문서 변경의 맥락은 `process/diffs/`에 남기고 실제 Git diff를 연결합니다.
 - 테스트·리뷰·수동 확인 증거는 `process/evidence/`에 남깁니다.
 - `AGENTS.md`와 `CLAUDE.md`는 프로젝트 지식을 복제하지 않고 어떤 문서를 언제 읽고 어떻게 일할지를 정의합니다.
 - 제품 범위가 바뀌면 `00_PROJECT_BRIEF.md`와 요구사항을 먼저 갱신합니다.
@@ -121,6 +123,7 @@ docs/06_READINESS_GATE.md의 V1~V7 검증 계약을 채우세요. PASS 또는 �
 │   └── docker/
 ├── process/
 │   ├── context/                 # 현재 코드베이스 지식과 라우터
+│   ├── research/                # 조사 질문, 출처, 실험과 결론
 │   ├── development-protocols/   # 작업 라이프사이클
 │   ├── plans/
 │   │   ├── active/
@@ -130,6 +133,7 @@ docs/06_READINESS_GATE.md의 V1~V7 검증 계약을 채우세요. PASS 또는 �
 │   │   ├── backlog/
 │   │   └── completed/
 │   ├── features/                # 큰 기능별 장기 작업 묶음
+│   ├── diffs/                   # 변경 이유, 전후 동작, Git diff 연결
 │   └── evidence/                # 테스트·리뷰·수동 검증 증거와 릴리스 체크
 ├── docs/
 │   ├── 00_PROJECT_BRIEF.md
