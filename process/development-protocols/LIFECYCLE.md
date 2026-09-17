@@ -13,20 +13,20 @@ Project Lifecycle Kit의 네 구간과 이 저장소의 일곱 단계를 다음�
 
 | Kit 구간 | 이 저장소의 단계 | 핵심 산출물 |
 |---|---|---|
-| 기획 | Research → Spec → Options → Plan → Validate | 승인 가능한 계획과 준비도 판정 |
-| 구축 | Execute | 작은 작업 단위, worklog, 테스트 결과 |
-| 검증 | Validate 재확인 → Closeout | 요구사항 커버리지와 release evidence |
+| 기획 | Research → Spec → Options → Plan → Validate | `process/research/`, 승인 가능한 계획과 준비도 판정 |
+| 구축 | Execute | 작은 작업 단위, worklog, `process/diffs/`, 테스트 결과 |
+| 검증 | Validate 재확인 → Closeout | 요구사항 커버리지, completed change record와 release evidence |
 | 운영 | Closeout 이후 | 배포·관측·롤백·인계 기록 |
 
-1. **Research** — 코드와 문서를 읽고 확인된 사실, 모순, 미정 사항, 영향 범위를 기록합니다. 제품 코드는 수정하지 않습니다.
+1. **Research** — 코드와 문서를 읽고 확인된 사실, 모순, 미정 사항, 영향 범위를 기록합니다. 구현 방향을 바꾸는 조사라면 `process/research/RESEARCH_TEMPLATE.md`를 복사해 저장하며 제품 코드는 수정하지 않습니다.
 2. **Spec** — 사용자 스토리, 포함·제외 범위, 요구사항, acceptance criteria를 평이한 언어로 고정합니다.
 3. **Options** — 현실적인 접근 2~3개, trade-off, 선택·기각 이유를 기록합니다. 장기 영향은 ADR로 남깁니다.
-4. **Plan** — 수정 예상 파일, 공개 계약, 단계, migration, 위험, 롤백, 검증 증거를 정의합니다.
+4. **Plan** — 수정 예상 파일, 공개 계약, 단계, migration, 위험, 롤백, 검증 증거를 정의하고 관련 research를 링크합니다.
 5. **Validate** — `docs/06_READINESS_GATE.md`의 V1~V7을 `PASS`, `CONDITIONAL`, `BLOCKED`로 판정합니다.
-6. **Execute** — 승인된 계획 범위에서 구현합니다. 계획과 달라지면 이유와 영향을 계획에 기록합니다.
-7. **Closeout** — 검증을 독립적으로 다시 실행하고 evidence를 저장한 뒤 계획을 completed로 옮기고 context를 갱신합니다.
+6. **Execute** — 승인된 계획 범위에서 구현합니다. 동작이나 의사결정에 영향이 있는 변경은 `process/diffs/DIFF_TEMPLATE.md`로 change record를 만들고, 계획과 달라지면 이유와 영향을 계획과 change record에 기록합니다.
+7. **Closeout** — 검증을 독립적으로 다시 실행하고 evidence를 저장합니다. change record에 commit SHA 또는 PR 링크, 검증 결과, 롤백과 잔여 위험을 채우고 상태를 `completed`로 바꾼 뒤 계획을 completed로 옮기고 context를 갱신합니다.
 
-구축 중에는 한 번에 하나의 작업만 진행하고, 각 작업에 요구사항 ID·영향 파일·완료 판정을 연결합니다. 계획과 다르게 구현한 내용은 `WORKLOG.md`에 남기고 관련 명세도 함께 갱신합니다.
+구축 중에는 한 번에 하나의 작업만 진행하고, 각 작업에 요구사항 ID·영향 파일·완료 판정을 연결합니다. 계획과 다르게 구현한 내용은 `WORKLOG.md`와 change record에 남기고 관련 명세도 함께 갱신합니다.
 
 ## Quick Fix Path
 
@@ -40,8 +40,10 @@ Project Lifecycle Kit의 네 구간과 이 저장소의 일곱 단계를 다음�
 흐름:
 
 ```text
-Inspect → Edit → Scoped Verify → Report
+Inspect → Edit → Scoped Verify → Change Record when behavior changed → Report
 ```
+
+오탈자처럼 동작과 의사결정에 영향이 없는 수정은 별도 change record 없이 Git commit message로 추적할 수 있습니다.
 
 ## Hard Stops
 
