@@ -4,6 +4,8 @@
 
 이 저장소는 사람은 **무엇을 왜 만들지와 완료 기준을 책임지고**, AI 코딩 에이전트는 정해진 범위 안에서 **분석·계획·구현·검증을 반복**하도록 설계된 풀스택 Vibe Coding Starter Repository입니다.
 
+새 프로젝트라면 가장 먼저 [`START_HERE.md`](START_HERE.md)를 열어 AI 인터뷰를 시작하세요.
+
 기본 구조는 프론트엔드와 백엔드가 분리된 모노레포입니다. 작은 CLI나 단일 서비스는 루트 `src/`를 사용할 수 있지만, 한 프로젝트에서 `src/`와 `apps/`에 같은 책임의 코드를 중복 구현하지 않습니다.
 
 ## Project Lifecycle Kit과의 관계
@@ -35,10 +37,10 @@
 ## 15분 시작 순서
 
 1. GitHub에서 이 저장소를 Template Repository로 지정한 뒤 새 프로젝트를 생성합니다.
-2. `{{...}}`, `[답변]`, `TBD`를 검색해 아래 문서를 순서대로 작성합니다.
-3. `.env.example`을 복사해 로컬 환경 파일을 만들고 실제 비밀값은 커밋하지 않습니다.
-4. `process/context/ALL_CONTEXT.md`에서 실제 기술 스택과 코드 위치를 확정합니다.
-5. AI 에이전트에게 아래의 "첫 작업 프롬프트"를 전달합니다.
+2. `START_HERE.md`의 시작 프롬프트를 AI 에이전트에게 전달해 질문 인터뷰를 진행합니다.
+3. `{{...}}`, `[답변]`, `TBD`를 검색해 아래 문서를 순서대로 완성합니다.
+4. `.env.example`을 복사해 로컬 환경 파일을 만들고 실제 비밀값은 커밋하지 않습니다.
+5. `process/context/ALL_CONTEXT.md`에서 실제 기술 스택과 코드 위치를 확정합니다.
 6. 에이전트가 만든 계획을 `process/plans/active/`에서 확인하고 `docs/06_READINESS_GATE.md`의 V1~V7을 통과한 뒤 구현합니다.
 
 ## 문서 작성 순서
@@ -155,6 +157,7 @@ docs/06_READINESS_GATE.md의 V1~V7 검증 계약을 채우세요. PASS 또는 �
 ├── .gitignore
 ├── AGENTS.md
 ├── CLAUDE.md
+├── START_HERE.md                # 새 프로젝트 질문 인터뷰 진입점
 └── README.md
 ```
 
