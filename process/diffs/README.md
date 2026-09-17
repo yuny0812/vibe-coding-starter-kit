@@ -32,4 +32,4 @@
 
 | 날짜 | 변경 | 상태 | commit / PR | 관련 research |
 |---|---|---|---|---|
-| YYYY-MM-DD | 예: 로그인 오류 처리 변경 | in-progress | 링크 | 링크 또는 N/A |
+| 2026-09-18 | [리서치·변경 추적 체계 추가](2026-09-18-research-and-diff-tracking.md) | completed | [1a8b308](https://github.com/yuny0812/vibe-coding-starter-kit/commit/1a8b308bfa18f5e15f6dfbf66379d5cdbd87dbde) | N/A |
