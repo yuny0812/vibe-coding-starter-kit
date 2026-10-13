@@ -72,6 +72,15 @@
 - 공개 동작, 환경변수, 아키텍처, 운영 방법이 바뀌면 같은 변경에서 관련 문서를 갱신합니다.
 - 검증하지 못한 항목은 통과했다고 표현하지 않고 이유와 영향을 남깁니다.
 
+## Superpowers 플러그인과의 분담
+
+이 저장소는 `.claude/settings.json`에서 Superpowers를 켭니다. Superpowers의 기획 흐름과 이 저장소의 라이프사이클이 겹치므로 다음을 따릅니다.
+
+- **기획은 `/plan-once`가 맡습니다.** Superpowers의 `brainstorming`·`writing-plans`를 기획 진입점으로 쓰지 않습니다. 자동 발동하면 `/plan-once`로 넘깁니다. Project Lifecycle Kit이 없는 환경에서는 `START_HERE.md` 인터뷰를 씁니다.
+- **산출물은 이 저장소의 Source of Truth 경로에만 씁니다.** 계획은 `process/plans/active/`, 명세는 `docs/`에 둡니다. `docs/superpowers/`를 만들지 않습니다.
+- **구현·검증 구간에서는 Superpowers skill을 쓸 수 있습니다** — `test-driven-development`, `systematic-debugging`, `verification-before-completion`, `subagent-driven-development`. 입력은 Validate gate를 통과한 활성 계획입니다.
+- `finishing-a-development-branch`가 merge/PR을 제안해도 커밋·푸시·PR은 사용자가 요청했을 때만 합니다.
+
 ## 계획이 필요한 경우
 
 다음 중 하나라도 해당하면 `process/plans/active/`에 작업 폴더와 계획을 먼저 만듭니다.
